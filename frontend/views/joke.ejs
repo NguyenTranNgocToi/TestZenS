@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
+
+    <title>joke</title>
+</head>
+<body>
+
+    
+     <div class="wrap-body"> 
+        <header id="wrap-header">
+            <div class="container" style="background-color: white;">
+                <div class="row" >
+                    <div class="col-md-1"> </div>
+                    <div class="col-md-4"> <img src="./hinh/logo.png">  </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3"> 
+                        <H5 style="text-align: right; margin-top: 20px; color: rgb(155, 142, 142);;">Handicarfted by</H5> 
+                        <H5 style="text-align: right; margin-top: 0px; color:black ;">Jim HLS</H5> </div>
+                    <div class="col-md-2">  <img src="./hinh/flower.jpg"> </div>
+                </div> 
+            </div>
+        </header>
+        <section id="wrap-section" style="background-color: rgb(19, 151, 41); " > 
+            <div class="container" >    
+                <div class="row" style="text-align: center; color:white; margin-bottom: 90px; ">
+                 <h1 style="margin-top: 80px;">A joke a day keeps the doctor away</h1>
+                 <h4 style="margin-top: 30px;">if you koke wrong way, your teeth have to pay. (Serious)</h4>
+                
+                
+                 
+              </div>
+        </section>
+        <section id="wrap-section2" style="background-color:white; " > 
+            <div class="container" >    
+                <div class="row" style="text-align: left;margin-left: 200px; margin-right: 200px;margin-top: 70px;">
+                 <p id="storyhtml"  style="font-size: 18px; color: rgb(155, 142, 142);border-bottom: 2px solid rgb(155, 142, 142); padding-bottom: 25px;">
+                    <%=story%>
+                 </p>
+                
+                   
+                
+              </div>
+
+              <div class="container" ">
+                    <div class="row" style="margin-bottom: 30px;margin-top: 20px;">
+                       
+                            <button id="funny" type="button" class="btn btn-primary" style="margin-left: 30%;width: 200px;height: 40px;" >This is Funny!</button>
+                            <button id="notfunny" type="button" class="btn btn-success" style="margin-left: 4%;width: 200px;height: 40px;" >This is not funny</button>
+                    </div>    
+              </div>
+        </section>
+        <footer  id="wrap-footer" style="border-top: 2px solid rgb(155, 142, 142);">
+            <div class="container" >
+                <div class="row">
+                    <footer >
+                        <h4 style="text-align: center; margin-left: 15%; margin-right: 15%; color:rgb(155, 142, 142);">
+                            This website is created as past of Hlsolutions program. The materials contrained on this website are provided for general
+                            information only and do not constitute any form of advice. HLS assumes no reposibility for the accuracy of any particular statement and
+                            accepts no liablity for any loss of damage which may arise from reliance on the information contained on this site.
+                        </h4>
+                        <h4 style="text-align: center; margin-left: 15%; margin-right: 15%; color:rgb(126, 113, 113);">Copyright 2021 HLS</h4>
+                    </footer>
+                </div>
+            </div>
+      </footer>
+    </div>
+
+    <script>
+        
+        var btnfunny = document.getElementById('funny');
+
+        btnfunny.onclick =function(){
+            window.location.replace("http://localhost:3000/funny?id="+"<%=idstory%>");
+            //window.location.replace("http://localhost:3000/joke");
+        }
+
+        var btnnotfunny = document.getElementById('notfunny');
+        btnnotfunny.onclick =function(){
+            window.location.replace("http://localhost:3000/unfunny?id="+"<%=idstory%>");
+             //window.location.replace("http://localhost:3000/joke");
+        }
+        
+    </script> 
+</body>
+</html>
