@@ -18,19 +18,26 @@ module.exports.trangchu = function (req, res) {
 
     database.getAllStory(function(resultsQuery){
         stories =resultsQuery;
-
+        var story ;
+        var idstory ;
 
         if(cookies.number != undefined){
-            // console.log("có cookie");
-            if(Number(cookies.number )< Number(cookies.maxnumber))
+            // có cookie
+            if(Number(cookies.number )< Number(cookies.maxnumber)-1)
             {
                 var ms = Number(cookies.number)+1;
                 // console.log("ms="+ms);
+
+                
                 res.cookie('number', ms);
+                story = stories[ms].story;
+                idstory = stories[ms].id;
+                res.cookie('maxnumber', stories.length);
+                return res.render("joke", {story, idstory});
             }
-    
-           if(Number(cookies.number)== Number(cookies.maxnumber)){
-            var story = "That's all the jokes for today!";
+            //cookie là story cuối 
+           if(Number(cookies.number)== Number(cookies.maxnumber)-1){
+            story = "That's all the jokes for today!";
             return res.render("joke", {story,idstory});
            }
         }
@@ -39,18 +46,17 @@ module.exports.trangchu = function (req, res) {
         if(cookies.number == undefined){
             // console.log("không có cookie");
             res.cookie('number', 0);
+
+             story = stories[0].story;
+             idstory = stories[0].id;
+            res.cookie('maxnumber', stories.length);
+            return res.render("joke", {story, idstory});
         }
           
 
 
 
-        // console.log("story herre"+ stories[cookies.number].story);
-        var story = stories[cookies.number].story;
-        var idstory = stories[cookies.number].id;
-        // console.log("id herre"+ idstory);
-        // console.log("size:"+stories.length);
-        res.cookie('maxnumber', stories.length);
-        return res.render("joke", {story, idstory});
+      
     });
  
 };
